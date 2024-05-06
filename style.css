@@ -1,0 +1,211 @@
+:root {
+    --soft-red-color: hsl(10, 79%, 65%);
+    --cyan-color: hsl(186, 34%, 60%);
+    --dark-brown-color: hsl(25, 47%, 15%);
+    --medium-brown-color: hsl(28, 10%, 53%);
+    --cream-color: hsl(27, 66%, 92%);
+    --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+body {
+    background-color: var(--cream-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    width: 540px;
+    height: 660px;
+}
+
+.card-header {
+    background-color: var(--soft-red-color);
+    border-radius: 1.1em;
+    padding: 27px 39px 25px 32px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.card-header-text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.card-header-text h6 {
+    color: var(--cream-color);
+    font-size: .98em;
+    letter-spacing: .1px;
+}
+
+.card-header-text h2 {
+    font-size: 1.73em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--very-pale-orange);
+}
+
+.card-body {
+    background-color: var(--very-pale-orange);
+    border-radius: 1.1em;
+    padding: 33px 40px;
+}
+
+.card-body h3 {
+    font-size: 1.74em;
+    font-weight: 700;
+    color: var(--dark-brown-color);
+    margin-bottom: 2.1em;
+    font-optical-sizing: none;
+}
+
+#spending-chart {
+    margin-bottom: 1em;
+    position: relative;
+}
+
+#spending-chart:after {
+    content: '';
+    width: 100%;
+    border-bottom: solid 2px var(--cream-color);
+    position: absolute;
+    left: 0;
+    bottom: -.85em;
+}
+
+#spending-chart .column {
+    --color: var(--soft-red-color);
+}
+
+#spending-chart .column tr {
+    max-height: 150px;
+}
+
+#spending-chart .column .current {
+    --color: var(--cyan-color);
+}
+
+#spending-chart .column tr:nth-child(1) {
+    padding-left: 0;
+}
+
+#spending-chart .column tr:nth-child(1) th {
+    right: 10px;
+}
+
+#spending-chart .column tr:last-child {
+    padding-right: 0;
+}
+
+#spending-chart .column tr:last-child th {
+    left: 10px;
+}
+
+#spending-chart .column th {
+    font-size: .84em;
+    color: var(--medium-brown-color);
+}
+
+#spending-chart .column td {
+    border-radius: 5px;
+}
+
+#spending-chart .column td:hover {
+    background-color: rgba(236, 119, 95, .5);
+    cursor: pointer;
+}
+
+#spending-chart .column .current:hover {
+    background-color: rgb(118, 181, 188, .5);
+}
+
+#spending-chart .column td .data {
+    background-color: var(--dark-brown-color);
+    color: var(--very-pale-orange);
+    margin: -8px;
+    padding: 7px 3px;
+    border-radius: 5px;
+}
+
+.card footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.6em;
+    margin-bottom: .5em;
+}
+
+.card footer .total-this-month h6 {
+    color: var(--medium-brown-color);
+    margin-bottom: 1px;
+}
+
+.card footer .total-this-month h6::first-letter {
+    letter-spacing: .2px;
+}
+
+.card footer .total-this-month h2 {
+    color: var(--dark-brown-color);
+    font-weight: 700;
+    font-size: 2.6em;
+    font-optical-sizing: none;
+}
+
+.card footer .from-last-month {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.card footer .from-last-month .percentage {
+    color: var(--dark-brown-color);
+    font-weight: 700;
+}
+
+.card footer .from-last-month .label {
+    color: var(--medium-brown-color);
+}
+
+@media (max-width: 550px) {
+    .card {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 455px) {
+    .card-body {
+        padding: 30px 20px;
+    }
+
+    .card footer .total-this-month h2 {
+        font-size: 1.95em;
+    }
+}
+
+@media (max-width: 412px) {
+    .card-header-text h2,
+    .card-body h3 {
+        font-size: 1.55em;
+    }
+
+    #spending-chart .column tr:nth-child(1) {
+        padding-left: unset;
+    }
+
+    #spending-chart .column tr:nth-child(1) th {
+        right: unset;
+    }
+}
